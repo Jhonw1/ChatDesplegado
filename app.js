@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
-const port = 10101;
+const port = 10101 ;
 
 const { API_KEY_GEMINI, START_CHAT, GENERATION_CONFIG } = require('./config');
 
@@ -18,12 +18,12 @@ app.use(cors({
     origin: 'https://gruapp.netlify.app'
   }));
 
-app.get('/', (req, res) => {
+app.get('/chat', (req, res) => {
     res.send('GET request to /api/chat');
 });
   
 
-app.post('/', async (req, res) => {
+app.post('/chat', async (req, res) => {
     let history = req.body.history;
     let question = req.body.question;
     let historyChat = START_CHAT.concat(history)
